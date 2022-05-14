@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <title>dudtlstm</title>
+</head>
+<h1>Post List</h1>
+
+<h4 style="text-align:right"><a href="{% url 'new' %}">나도 글쓰기!</a></h4>
+
+<hr>
+<div>
+    {% for post in posts %}
+    <div>
+        <h4> <{{post.title}}> </h4>
+        <h5>written by {{post.writer}}</h5><br>
+        - {{post.summary}}
+        <a href="{%url 'detail' post.id %}">...자세히</a>
+        <hr>
+        <br>
+    </div>
+    {%endfor%}
+</div>
+<body>
+    <div id="jb-container">
+        <div id="jb-header">
+            <h1>Who am I?</h1>
+        </div>
+        <div id="jb-content">
+            <center><img src="{% static 'images/브이사진.jpg' %}" height="240" weigh="240"></center>
+            <div class="Name">
+                <h1>Name</h1>
+            </div>
+            <div class="shin">
+                <p>박영신(朴英信)</p>
+            </div>
+            <div class="Age">
+                <h1>Age & Gender</h1>
+            </div>
+            <div class="zerotwo">
+                <p>21살(02년생) & 여자</p>
+            </div>
+            <div class="Birthday">
+                <h1>Birthday</h1>
+            </div>
+            <div class="twoten">
+                <p>2의 10승</p>
+                <p>(= 1024 ㅎ ㅎ)</p>
+            </div>
+            <div class="Major">
+                <h1>Major</h1>
+            </div>
+            <div class="computer">
+                <p>영어영문학부</p>
+                <p>영어를 좋아해서 왔는데 좋아한다고 전공으로 할 순 없다는 걸 깨달았다.</p>
+                <p>영어라는 학문을 좋아하는 게 아니라 그냥 단순히 외국을 좋아하는 걸로...</p>
+                <p>그래서 공대로 전과 준비 중. 사실 원래 이과였다.</p>
+                <p>과연 저는 내년에 웃을 수 있을까요..... 지켜봐 주세요.......!!</p>
+            </div>
+            <div class="MBTI">
+                <h1>MBTI</h1>
+            </div>
+            <center>
+                <p><img src="{% static 'images/엠바탸이.jpg' %}" height="170" weigh="170"></p>
+            </center>
+            <div class="INFJ">
+                <p>거의 반반이지만 뼛속까지 "INFJ"</p>
+                <p>사람마다 대하는 게 많이 다르지만 친해지면 내가 I라는 걸 아무도 못 믿음.</p>
+                <p>친해지면 영락없는 개구쟁이가 됨 ^_^</p>
+                <p>친해지고 싶어요 모두들...!!</p>
+            </div>
+            <div class="Hobby">
+                <h1>Hobby</h1>
+                <img src="{% static 'images/하늘사진1.jpg' %}" style="margin: 0 auto;" height="130" weigh="130" />
+                <img src="{% static 'images/하늘사진2.jpg' %}" style="margin: 0 auto;" height="130" weigh="130" />
+                <img src="{% static 'images/하늘사진이요.jpg' %}" style="margin: 0 auto;" height="130" weigh="130" />
+                <img src="{% static 'images/하늘사진3.jpg' %}" style="margin: 0 auto;" height="130" weigh="130" />
+                <img src="{% static 'images/하늘사진4.jpg' %}" style="margin: 0 auto;" height="130" weigh="130" />
+            </div>
+            <div class="sky">
+                <p>❝ONE❞ 하늘 보기, 하늘 및 풍경 사진 찍기⛅</p>
+                <p>해 질 때의 노을을 너무나 사랑하는 편...</p>
+                <img src="{% static 'images/바다사진1.jpg' %}" style="margin: 0 auto;" height="150" weigh="150" />
+                <img src="{% static 'images/바다사진2.jpg' %}" style="margin: 0 auto;" height="150" weigh="150" />
+                <div class="ocean">
+                    <p>❝TWO❞ 바다 보기⛱</p>
+                    <p>보면서 힐링되는 건 뭐든 좋아하는 것 같아요 !!</p>
+                </div>
+                <p>❝THREE❞ 운동⚽</p>
+                <p>찍어 둔 사진은 없지만 배드민턴, 등산, 축구 등 운동하는 것도 너무 좋아해요 !</p>
+                <img src="{% static 'images/만두사진.jpg' %}" style="margin: 0 auto;" height="130" weigh="130" />
+                <p>❝FOUR❞ 먹는 거❣</p>
+                <p>맛있는 걸 먹으면 설레고 행복해지는 편 !</p>
+                <p>위 사진은 제가 먹어 본 만두 중에 제일 만두피가 쫀득했어요 ㅠ ㅠ 그래서 바로 사진을 찍어 둔...</p>
+                <p>만두 좋아하시는 분들께 진짜 추천❕</p>
+                <p>❝FIVE❞ 음악 듣기𝆕</p>
+                <p>눈 뜨자마자 음악을 틀고 잘 때도 음악을 들으면서 자는 편</p>
+                <p>그만큼 노래방도 너무너무 좋아해요☺</p>
+                <p>❝SIX❞ 언니들 옷 뺏어 입기☠</p>
+                <img src="{% static 'images/응응.jpg' %}" style="margin: 0 auto;" height="150" weigh="150" />
+                <p>동생 있는 언니분들은 모두 화내시겠지만.. 언니 옷을 입는 게 제 취미..</p>
+                <p>(물론 말하고 입어요..! 저 못된 사람은 아니에요....)</p>
+                <p>제가 괜찮은 옷을 입으면 그건 언니 옷이고 누추한 옷을 입으면 그건 제 옷이라고 생각해 주시면 돼요 ^_^</p>
+            </div>
+            <div class="Childhood">
+                <h1>Childhood</h1>
+                <img src="{% static 'images/애기영신1.jpg' %}" style="margin: 0 auto;" height="150" weigh="160" />
+                <img src="{% static 'images/애기영신2.jpg' %}" style="margin: 0 auto;" height="150" weigh="160" />
+                <img src="{% static 'images/애기영신3.jpg' %}" style="margin: 0 auto;" height="150" weigh="160" />
+            </div>
+            <div class="hi">
+                <p>마무리 짓기 위해 넣어 보는 사진들...</p>
+                <p>애기 때부터 장난끼 넘쳐 보이는 사진들...</p>
+                <p>지금도 변하지 않았으니 한 번 친해지기 시작하면 재밌을 거예요 히히</p>
+            </div>
+        </div>
+        <div id="jb-footer">
+            <p>2022년 4월 5일</p>
+            <p>instagram ] @likelion_dongguk @dudtlstm</p>
+            <p>e-mail ] annpys1024@naver.com</p>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
