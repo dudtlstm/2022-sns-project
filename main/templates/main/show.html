@@ -6,22 +6,9 @@
     <title>dudtlstm</title>
 </head>
 <h1>Post List</h1>
-
-<h4 style="text-align:right"><a href="{% url 'new' %}">나도 글쓰기!</a></h4>
-
+<h5><a href = "{% url 'main:posts' %}">글 목록 보기</a></h5>
+<h4 style="text-align:right"><a href="{% url 'main:new' %}">나도 글쓰기!</a></h4>
 <hr>
-<div>
-    {% for post in posts %}
-    <div>
-        <h4> <{{post.title}}> </h4>
-        <h5>written by {{post.writer}}</h5><br>
-        - {{post.summary}}
-        <a href="{%url 'detail' post.id %}">...자세히</a>
-        <hr>
-        <br>
-    </div>
-    {%endfor%}
-</div>
 <body>
     <div id="jb-container">
         <div id="jb-header">
