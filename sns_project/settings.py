@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +134,16 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS=[
+    #superuser 로그인 기능
+    'django.contrib.auth.backends.ModelBackend',
+    #이메일 등의 로그인 기능
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# admin 페이지 관리 번호, 단일서버는 1 입력
+SITE_ID = 1
+
+# 로그인 시 이동하는 페이지, 만약 글 목록으로 이동하고 싶다면 '/posts'
+LOGIN_REDIRECT_URL = '/' #메인화면으로 이동
