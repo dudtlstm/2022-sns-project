@@ -11,7 +11,9 @@
     <p><img src = "{{post.image.url}}" alt = "사진" height="500" weigh="500"></p>
 {% endif %}
 <p>{{post.body}}</p>
-<a href="{% url 'main:edit' post.id%}">수정하기</a>
+    {% if user == post.writer %}
+    <a href="{% url 'main:edit' post.id%}">수정하기</a>
+    {% endif %}
 <a href="{% url 'main:delete' post.id%}">삭제하기</a> 
 
 {% endblock %}
