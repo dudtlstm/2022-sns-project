@@ -39,8 +39,8 @@
         {% endif %}
     {{comment.content}}<br>
         {% if user == comment.writer %}
-        <a href="{% url 'main:edit_comment' comment.id %}">댓글 수정하기</a>
-        <a href="{% url 'main:delete_comment' comment.id %}">댓글 삭제하기</a>
+        <a href="{% url 'main:edit_comment' comment.id %}">댓글 수정</a>
+        <a href="{% url 'main:delete_comment' comment.id %}">댓글 삭제</a>
         {% endif %}
     <hr>
     </div>
@@ -48,8 +48,10 @@
 </div>
 
 {% if user == post.writer %}
-<a href="{% url 'main:edit' post.id%}">글 수정하기</a>
-<a href="{% url 'main:delete' post.id%}">글 삭제하기</a> 
+<a href="{% url 'main:edit' post.id%}">글 수정</a>
+<a href="{% url 'main:delete' post.id%}">글 삭제</a> 
 {% endif %}
+
+<h5><a href = "{% url 'main:posts' %}">글 목록</a></h5>
 
 {% endblock %}
