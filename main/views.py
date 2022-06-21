@@ -32,20 +32,6 @@ def create(request):
     new_post.save()
     return redirect('main:detail',new_post.id)
 
-def create_comment(request, post_id):
-    new_comment = Comment()
-    new_comment.writer = request.user
-    new_comment.content = request.POST['content']
-    new_comment.post = get_object_or_404(Post, pk = post_id)
-    new_comment.save() 
-    return redirect('main:detail', post_id)
-
-def delete_comment(request, id):
-    delete_comment = Comment.objects.get(id=id)
-    if request.user == comment.writer:
-        delete_comment.delete()
-    return redirect("main:detail", delete_comment.post.id)
-
 def edit(request, id):
     edit_post = Post.objects.get(id=id)
     return render(request, 'main/edit.html', {'post':edit_post})
@@ -65,3 +51,25 @@ def delete(request, id):
     delete_post = Post.objects.get(id=id)
     delete_post.delete()
     return redirect('main:posts')
+
+def create_comment(request, post_id):
+    new_comment = Comment()
+    new_comment.writer = request.user
+    new_comment.content = request.POST['content']
+    new_comment.post = get_object_or_404(Post, pk = post_id)
+    new_comment.save() 
+    return redirect('main:detail', post_id)
+    
+def delete_comment(request, id):
+    delete_comment = Comment.objects.get(id=id)
+    delete_comment.delete()
+    return redirect('main:detail', delete_comment.id)
+
+def update_comment(request, id):
+    update_comment = Comment.objects.get(comment_id=comment_id)
+    update_comment.writer = request.user
+    update_comment.pub_date = timezone.now()
+    update_comment.content = request.POST['content']
+    update_comment.post = get_object_or_404(Post, pk=post_id)
+    update_comment.save()
+    return redirect('main:detail', update_comment.id)
