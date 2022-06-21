@@ -3,10 +3,10 @@
 {% block content %}
 
 <h1>댓글 수정하기</h1>
-<form action="{% url 'main:update_comment' comment.id %}" method="post" enctype="multipart/form-data">
+<form action="{%url 'main:update_comment' comment.id%}" method="POST">
     {%csrf_token%}
-    <p>내용 : <textarea name="body" id="" cols="30" rows="10">{{ comment.content }}</textarea></p>
-    <button type="submit">수정 완료</button>
+    <textarea name="content">{{comment.content}}</textarea>
+    <input type="submit" value="확인">
 </form>
 
 {% endblock %}
